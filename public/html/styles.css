@@ -1,0 +1,72 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Top menu styles */
+.top-menu {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.top-menu ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+.top-menu li {
+    margin: 0 10px;
+}
+
+.top-menu a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Grid container styles */
+.grid-container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 1fr;
+    height: calc(100vh - 40px); /* Adjust height based on top menu height */
+    margin-top: 40px; /* Adjust margin based on top menu height */
+}
+
+/* Left menu styles */
+.left-menu {
+    background-color: #f1f1f1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.left-menu ul {
+    list-style-type: none;
+}
+
+.left-menu li {
+    margin-bottom: 10px;
+}
+
+.left-menu a {
+    color: #333;
+    text-decoration: none;
+}
+
+/* Body content styles */
+.body-content {
+    padding: 20px;
+    overflow-y: auto;
+}

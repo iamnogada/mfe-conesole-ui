@@ -1,0 +1,13 @@
+{% extends "_layout/page.html" -%}
+{% block content -%}
+    <div class="">
+        <button
+        hx-get="/common/user"
+        hx-trigger="click"
+        hx-target="#place"
+        hx-swap="innerHTML"
+        hx-push-url="true"
+        >Nav to user</button>
+        <div id="place">(None)</div>
+    </div>
+{% endblock %}

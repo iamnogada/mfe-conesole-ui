@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="/assets/css/fontawesome.all.css"
+    />
+    <link rel="stylesheet" href="/css/main.css">
+    <title>ZCP Console</title>
+    <script src="/assets/js/htmx.min.js"></script>
+    <script src="/assets/js/handlebars.js"></script>
+    <script src="/assets/js/nunjucks.js"></script>
+    <script src="/assets/js/json-enc.js"></script>
+    <script src="/js/main.js"></script>
+    <script>
+      <!-- htmx.logAll(); -->
+    </script>
+    <script src="/assets/js/client-side-templates.js"></script>
+    <script src="/assets/js/htmx-chain-event.js"></script>
+    <script
+      defer
+      src="/assets/js/alpinejs.3.x.min.js"
+    ></script>
+  </head>
+  <body>
+    <header
+    hx-get="/common/menu/gnb"
+    hx-trigger="load"
+    hx-swap="innerHTML"></header>
+    <div class="grid grid-cols-lnbwidth grid-rows-1 h-[calc(100vh-var(--gnbheight))] mt-gnbheight">
+      <aside class="p-5 overflow-y-auto bg-gray-100"
+      hx-get="/common/menu/sidebar"
+      hx-trigger="load"
+      hx-swap="innerHTML"
+      >
+      </aside>
+      <main class="p-5 overflow-y-auto">
+        <div
+        hx-get="/common/menu/breadcrumbs"
+        hx-trigger="load"
+        hx-swap="innerHTML"
+        ></div>
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+  </body>
+</html>
