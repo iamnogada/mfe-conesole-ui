@@ -1,0 +1,64 @@
+{
+    "apps": [
+        {
+            "name": "home",
+            "displayName": "Home",
+            "href": "/",
+            "sidebar":{
+                "use": false,
+                "remoteURL":""
+            }
+        },
+        {
+            "name": "k8s",
+            "displayName": "K8S Resource",
+            "href": "/cluster/dashboard",
+            "sidebar":{
+                "use": true,
+                "remoteURL":"/common/menu/k8sinfra"
+            }
+        },
+        {
+            "name": "sample",
+            "displayName": "Sample Service",
+            "href": "/pushsvc",
+            "sidebar":{
+                "use": true,
+                "remoteURL":"/common/menu/pushsvc"
+            }
+        }
+    ],
+    "serviceLink":[
+        {
+            "name": "home",
+            "title": "ZMP",
+            "href": "/",
+            "type": "htmx"
+        },
+        {
+            "name": "node-explorer",
+            "title": "K8S-Infra",
+            "href": "/cluster/node",
+            "type": "htmx"
+        },
+        {
+            "name": "workload-explorer",
+            "title": "K8S-Workload",
+            "href": "/cluster/workload",
+            "type": "vue"
+        },
+        {
+            "name": "notification",
+            "title": "Notification",
+            "href": "/pushsvc/notification",
+            "type": "htmx"
+        },
+        {
+            "name": "caht",
+            "title": "Caht",
+            "href": "/pushsvc/chat",
+            "type": "htmx"
+        }
+        
+    ]
+}
