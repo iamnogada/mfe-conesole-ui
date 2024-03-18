@@ -1,27 +1,30 @@
 {
     "apps": [
         {
-            "name": "home",
+            "appID": "home",
             "displayName": "Home",
             "href": "/",
+            "remoteApp": "/",
             "sidebar":{
                 "use": false,
                 "remoteURL":""
             }
         },
         {
-            "name": "k8s",
+            "appID": "k8s",
             "displayName": "K8S Resource",
             "href": "/cluster/dashboard",
+            "remoteApp":"http://localhost:9010",
             "sidebar":{
                 "use": true,
                 "remoteURL":"/common/menu/k8sinfra"
             }
         },
         {
-            "name": "sample",
+            "appID": "sample",
             "displayName": "Sample Service",
             "href": "/pushsvc",
+            "remoteApp":"http://localhost:9020",
             "sidebar":{
                 "use": true,
                 "remoteURL":"/common/menu/pushsvc"
@@ -30,32 +33,36 @@
     ],
     "serviceLink":[
         {
+            "appID": "home",
             "name": "home",
             "title": "ZMP",
             "href": "/",
             "type": "htmx"
         },
         {
+            "appID": "k8s",
             "name": "node-explorer",
             "title": "K8S-Infra",
             "href": "/cluster/node",
             "type": "htmx"
         },
         {
+            "appID": "k8s",
             "name": "workload-explorer",
             "title": "K8S-Workload",
             "href": "/cluster/workload",
             "type": "vue"
         },
-        {
+        {   
+            "appID": "sample",
             "name": "notification",
             "title": "Notification",
             "href": "/pushsvc/notification",
             "type": "htmx"
         },
         {
-            "name": "caht",
-            "title": "Caht",
+            "appID": "sample",
+            "title": "Chat",
             "href": "/pushsvc/chat",
             "type": "htmx"
         }

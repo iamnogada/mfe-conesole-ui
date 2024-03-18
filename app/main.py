@@ -1,12 +1,13 @@
 
 from fastapi import FastAPI, HTTPException, Request, Response
 from fastapi.responses import HTMLResponse
-from fastapi.staticfiles import StaticFiles
 from starlette.middleware.base import BaseHTTPMiddleware
 
 from app.utils import InitFilesystemRouter, log, RenderTemplate, Init_Template
 from app.middlewares import HTTP_Middleware
 import httpx
+
+from app.services import init_static_files
 
 #  Context path for the application
 APP_NAME=""
@@ -16,13 +17,15 @@ app = FastAPI(root_path=f"{APP_NAME}",
               default_response_class=HTMLResponse,
               version="0.1.0",
               debug=True)
+
 log.info(f"App {APP_NAME} started")
 
 # Mount static files
-app.mount("/assets", StaticFiles(directory="public/assets"), name="assets")
-app.mount("/js", StaticFiles(directory="public/js"), name="js")
-app.mount("/css", StaticFiles(directory="public/css"), name="css")
-app.mount("/html", StaticFiles(directory="public/html"), name="html")
+init_static_files(app)
+# app.mount("/assets", StaticFiles(directory="public/assets"), name="assets")
+# app.mount("/js", StaticFiles(directory="public/js"), name="js")
+# app.mount("/css", StaticFiles(directory="public/css"), name="css")
+# app.mount("/html", StaticFiles(directory="public/html"), name="html")
 
 # Load routers from filesystem
 InitFilesystemRouter(app)
@@ -79,3 +82,8 @@ async def root_get(path:str, request: Request=None, response: Response=None):
             response.headers[name] = value
         response.status_code = result.status_code
         return response
+
+
+
+
+
