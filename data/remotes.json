@@ -1,0 +1,31 @@
+{
+    "apps": [
+        {
+            "name": "home",
+            "displayName": "Home",
+            "link": "/",
+            "sidebar":{
+                "use": false,
+                "url":""
+            }
+        },
+        {
+            "name": "remote",
+            "displayName": "Remote Service",
+            "link": "/remote",
+            "sidebar":{
+                "use": true,
+                "url":"/remote/menu"
+            }
+        },
+        {
+            "name": "pushsvc",
+            "displayName": "Push Service",
+            "link": "/pushsvc",
+            "sidebar":{
+                "use": true,
+                "url":"/pushsvc/menu"
+            }
+        }
+    ]
+}

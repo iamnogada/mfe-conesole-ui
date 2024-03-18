@@ -9,3 +9,6 @@ def Init_Template(directory:str="app/routers"):
 
 def Template():
     return _template
+
+def RenderTemplate(request, name, context={}):
+    return _template.TemplateResponse(request=request, name=name, context=context)
