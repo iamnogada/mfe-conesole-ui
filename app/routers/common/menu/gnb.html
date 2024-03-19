@@ -1,0 +1,23 @@
+{% extends "_layout/default.html" -%} {% block content -%}
+<nav
+  class="bg-blue-800 text-white py-2.5 fixed top-0 left-0 w-full z-10 h-gnbheight flex justify-between items-center"
+  x-data="{activeNavItem: window.location.pathname.split('/')[1]}"
+>
+  <ul class="flex justify-start">
+    {% for item in nav_items -%}
+    <li class="mx-4">
+      <a
+        href="{{item.href}}"
+        class="hover:text-gray-400"
+        :class="{'text-gray-400': {{item.active}} }"
+        >{{item.displayName}}</a
+      >
+    </li>
+    {% endfor -%}
+  </ul>
+  <ul class="flex justify-end">
+    <li class="mx-4"><a href="#" class="hover:text-gray-400">Alarm</a></li>
+    <li class="mx-4"><a href="#" class="hover:text-gray-400">Profile</a></li>
+  </ul>
+</nav>
+{% endblock %}

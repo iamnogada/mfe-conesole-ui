@@ -1,0 +1,14 @@
+{% extends "_layout/default.html" -%}
+{% block content -%}
+<ul class="flex p-0 mb-5 list-none">
+    <li class="mr-2"><a href="/" class="text-blue-600">Home</a></li>
+    {% for item in breadcrumbs -%}
+    <li class="mr-2">&gt</li>
+        {% if loop.last -%}
+        <li class="mr-2">{{item.name}}</li>
+        {% else -%}
+        <li class="mr-2"><a href="{{item.href}}" class="text-blue-600">{{item.name}}</a></li>
+        {% endif -%}
+    {% endfor -%}
+</ul>
+{% endblock %}

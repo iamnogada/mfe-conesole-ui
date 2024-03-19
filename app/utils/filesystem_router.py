@@ -18,7 +18,10 @@ def InitFilesystemRouter(app, root="app/routers"):
                 mod = import_module(module_path)
                 if hasattr(mod, "router") and isinstance(mod.router, APIRouter):
                     prefix = os.path.relpath(root, "app/routers").replace(os.sep, "/")
-                    app.include_router(mod.router, prefix=f"/{prefix}", tags=[prefix])
+                    if(prefix == "."):
+                        app.include_router(mod.router)
+                    else:
+                        app.include_router(mod.router, prefix=f"/{prefix}", tags=[prefix])
                     log.info(f"Loading router {module_path} with prefix {prefix}")
                 else:
                     log.info(f"Module {module_path} does not have a FastAPI router.")
