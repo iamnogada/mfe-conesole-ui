@@ -4,6 +4,7 @@
             "appID": "home",
             "displayName": "Home",
             "href": "/",
+            "defaultService": "home",
             "remoteApp": "/",
             "sidebar":{
                 "use": false,
@@ -13,58 +14,65 @@
         {
             "appID": "k8s",
             "displayName": "K8S Resource",
-            "href": "/cluster/dashboard",
+            "href": "/cluster",
+            "defaultService": "node-explorer",
             "remoteApp":"http://localhost:9010",
             "sidebar":{
                 "use": true,
-                "remoteURL":"/common/menu/k8sinfra"
+                "remoteURL":"/common/menu/sidebar"
             }
         },
         {
             "appID": "sample",
             "displayName": "Sample Service",
             "href": "/pushsvc",
+            "defaultService": "notification",
             "remoteApp":"http://localhost:9020",
             "sidebar":{
                 "use": true,
-                "remoteURL":"/common/menu/pushsvc"
+                "remoteURL":"/common/menu/sidebar"
             }
         }
     ],
-    "serviceLink":[
+    "serviceLinks":[
         {
             "appID": "home",
             "name": "home",
             "title": "ZMP",
             "href": "/",
-            "type": "htmx"
+            "type": "htmx",
+            "permission": ["all"]
         },
         {
             "appID": "k8s",
             "name": "node-explorer",
             "title": "K8S-Infra",
             "href": "/cluster/node",
-            "type": "htmx"
+            "type": "htmx",
+            "permission": ["all"]
         },
         {
             "appID": "k8s",
             "name": "workload-explorer",
             "title": "K8S-Workload",
             "href": "/cluster/workload",
-            "type": "vue"
+            "type": "vue",
+            "permission": ["all"]
         },
         {   
             "appID": "sample",
             "name": "notification",
             "title": "Notification",
             "href": "/pushsvc/notification",
-            "type": "htmx"
+            "type": "htmx",
+            "permission": ["all"]
         },
         {
             "appID": "sample",
             "title": "Chat",
             "href": "/pushsvc/chat",
-            "type": "htmx"
+            "type": "htmx",
+            "permission": ["all"]
         }
         
     ]
