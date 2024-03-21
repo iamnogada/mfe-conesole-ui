@@ -1,6 +1,7 @@
 from fastapi.datastructures import URL
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.requests import Request
+from app.utils import extract_url_parts
 import time
 
 
@@ -23,16 +24,12 @@ class HTTP_Middleware(BaseHTTPMiddleware):
         if "Hx-Request" in request.headers:
             # add hx_request to state so JINJA2 use this to add css and js files
             request.state.hx_request = True
-            current_url = URL(request.headers["Hx-Current-Url"] if "Hx-Current-Url" in request.headers else request.url.path)
-            request.state.current_url = current_url.path.replace('//','/')
-            request.state.current_query = current_url.query
+            current_url = request.headers["Hx-Current-Url"] if "Hx-Current-Url" in request.headers else request.url.path
+            request.state.current = extract_url_parts(current_url)
         else:
             request.state.hx_request = False
-            request.state.current_url = request.url.path
-        
-        # Add current app to state
-        request.state.current_app =f"/{request.state.current_url.lstrip('/').split('/')[0]}"
-        request.state.current_path = request.state.current_url.replace(request.state.current_app,'')
+            request.state.current = extract_url_parts(request.url.path)
+
         # When local dev mode, set this to serve js and other static files
         request.state.root_path=self.root_path
         # Call the next middleware or route handler

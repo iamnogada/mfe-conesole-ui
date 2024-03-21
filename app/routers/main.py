@@ -15,6 +15,7 @@ from app.utils import RenderTemplate, log
 router = APIRouter()
 
 # Default Home Router
+# select loader: htmx/vue/etc
 @router.get("/")
 async def index(request: Request=None):
     log.info(f"servicelinks: {request.app.App_Services.serviceLinks}")

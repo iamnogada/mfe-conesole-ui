@@ -17,7 +17,7 @@ async def gnb(request: Request) -> HTMLResponse:
     
     nav_items = [
        
-        {"displayName": app.displayName, "active": 'true' if app.href == request.state.current_app else 'false', "href": app.href}
+        {"displayName": app.displayName, "active": 'true' if app.href == request.state.current.app_name else 'false', "href": app.href}
         for app in request.app.App_Services.apps
     ]
     
