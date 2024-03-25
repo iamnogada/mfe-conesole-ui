@@ -41,5 +41,5 @@ async def breadcrumbs(request: Request) -> HTMLResponse:
     return Template().TemplateResponse(
         request=request,
         name="common/menu/breadcrumbs.html",
-        context={"breadcrumbs": "home"},
+        context={"breadcrumbs": crumbs},
     )
