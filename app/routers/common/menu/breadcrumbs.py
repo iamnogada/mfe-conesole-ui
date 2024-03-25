@@ -35,9 +35,6 @@ async def breadcrumbs(request: Request) -> HTMLResponse:
         [],
     )
 
-    log.info(f"breadcrumbs: {breadcrumbs}")
-    log.info(f"app_path: {request.state.current.app_path}")
-    log.info(f"crumbs: {crumbs}")
     return Template().TemplateResponse(
         request=request,
         name="common/menu/breadcrumbs.html",
